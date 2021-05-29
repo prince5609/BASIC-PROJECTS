@@ -1,4 +1,4 @@
-from player import HumanPlayer, RandomComputerPlayer
+from TicTacToe_Players import HumanPlayer, RandomComputerPlayer
 
 
 class TicTacToe:
