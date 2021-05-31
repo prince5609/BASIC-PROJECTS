@@ -31,9 +31,6 @@ class TicTacToe:
         # it will return an boolean of weather empty " " is there or not
         return " " in self.board
 
-    def num_empty_square(self):
-        return self.board.count(" ")
-
     def make_move(self, square, letter):
 
         if self.board[square] == " ":
@@ -67,10 +64,8 @@ class TicTacToe:
         return False
 
 
-def play(game, x_player, o_player, print_game=True):
-    if print_game:
-        game.print_board_nums()
-
+def play(game, x_player, o_player):
+    game.print_board_nums()
     letter = "x"
 
     while game.empty_square():
@@ -80,18 +75,16 @@ def play(game, x_player, o_player, print_game=True):
             square = x_player.get_move(game)
 
         if game.make_move(square, letter):
-            if print_game:
-                print(letter + f" make a move to square {square}")
-                game.print_board()
-                print(" ")
+            print(letter + f" make a move to square {square}")
+            game.print_board()
+            print(" ")
 
             if game.current_winner:
-                if print_game:
-                    print(letter + " wins !")
+                print(letter + " wins !")
                 return letter
             letter = "o" if letter == "x" else "x"
 
-        elif print_game:
+        else:
             print("it's a tie")
 
 
@@ -99,4 +92,4 @@ if __name__ == '__main__':
     x_player = HumanPlayer("x")
     o_player = RandomComputerPlayer("o")
     t = TicTacToe()
-    play(t, x_player, o_player, print_game=True)
+    play(t, x_player, o_player)
