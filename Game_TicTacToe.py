@@ -84,8 +84,7 @@ def play(game, x_player, o_player):
                 return letter
             letter = "o" if letter == "x" else "x"
 
-        else:
-            print("it's a tie")
+    return print("It's a tie")
 
 
 if __name__ == '__main__':
